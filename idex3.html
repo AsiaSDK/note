@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>learn vue.js </title> 
+       
+
+    </head>
+    <body> 
+        <div id ="elzero-app">
+            <h1>welcom to vue</h1>
+         
+          <!--  <p>Welcome {{ name.toUpperCase() }} We  Are Happy To See You.</p>-->
+            
+            <!-- condition ? True : False -->
+            <p>Welcome {{ 'Mr' + name }} We  Are Happy To See You.</p>
+            <!-- v-text مثل عمل الاقواس المزدوجة-->
+            <p v-text="name  "></p>
+            <!-- يجب عدم فصل الاف عن الايلس-->
+          <!-- <p v-if="name"> Welcome {{name}}</p>
+          <p v-else>You Didnt Set A name</p>-->
+
+            <p v-if="age >50">you Are Too Old</p>
+            <p v-else-if="age>15 && age < 40">You Are Too Old</p>
+            <p v-else>You Are Still Young</p>
+            <p>Welcome {{ name }} </p>
+            
+            <ul>
+                <li v-for="skill in skills">
+                    {{skill}}
+                </li>
+            </ul>
+            <ul>
+                <!--يعرض لوب داخل اللست-->
+                <li v-for="(skill ,index) in skills">
+                   {{ index }} => {{ skill }}
+                </li>
+            </ul>
+  
+        </div>
+        <script src="js/vue.js"></script>
+        <script>
+        
+        var vm = new Vue({
+
+         el:'#elzero-app',
+         data: {
+             name:'Osama',
+             age:55,
+            
+             skills:['HTML','css','Js'],
+             
+
+
+
+             
+          
+         },
+        
+        
+        })
+        </script>
+       
+    </body>
+</html>

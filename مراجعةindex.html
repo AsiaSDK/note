@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>learn vue.js </title> 
+       
+
+    </head>
+    <body> 
+        <div id ="elzero-app">
+            <h1>welcom to vue</h1>
+         
+          <!--  <p>Welcome {{ name.toUpperCase() }} We  Are Happy To See You.</p>-->
+            
+            <!-- condition ? True : False -->
+            <p>Welcome {{ 'Mr' + name }} We  Are Happy To See You.</p>
+            <p> your Age Is :{{ age +'years'}} </p>
+            <p>your First Skills Is: {{skills[0]}} </p>
+            <p>you Are {{isSubscribed ? 'isSubscribed': 'Not isSubscribed'}}</p>
+                                           <!--يطبع العنصر رقم1-->
+            <p> Your  First Test Name Is: {{completedTests[0].testName}} </p>
+            <p> {{ yourAgeInDays() }}  </p>
+            <p> {{ date }} </p>
+            <button @click =" showNewDate">show new date</button>
+  
+        </div>
+        <script src="js/vue.js"></script>
+        <script>
+        
+        var vm = new Vue({
+
+         el:'#elzero-app',
+         data: {
+             name:'Osama',
+             age: 36,
+             date: 'Today',
+                    /* [0]  ,[1]  ,[2]*/
+             skills:['HTML','css','Js'],
+             /* true = isSubscribed  ,false=Not  isSubscribed*/
+             isSubscribed: false,
+            
+       completedTests:[
+             {
+            
+                testName:'first Test',
+                testResult: '80%'
+
+             },
+
+             {
+            
+            testName:'Scond Test',
+            testResult: '80%'
+
+         },
+
+         {
+            
+            testName:'third Test',
+            testResult: '90%'
+
+         },
+
+             ],
+         },
+        methods: {
+
+            yourAgeInDays:function () {
+                return 'Your age In Days Is: '+ this.age * 365;
+            },
+             /* معرفة التوقيت*/
+            showNewDate : function () {
+            this.date = Date();
+            }
+        }
+        
+        })
+        </script>
+       
+    </body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>learn vue.js </title> 
+       
+
+    </head>
+    <body> 
+        <div id ="elzero-app">
+            <h1>welcom to vue</h1>
+            <label>Write Your Username:</label>
+            <input type="text" v-model="username">
+            <p>{{  validateUsername }}</p>
+        </div>
+        <script src="js/vue.js"></script>
+        <script>
+           
+        var vm = new Vue({
+
+        el: '#elzero-app',
+        data: {
+            username : '',
+        },
+        methods: {
+
+        },
+        computed: {
+            validateUsername: function () {
+                if (!this.username) {
+                    return 'Username Cant be Empty';
+                } else if (this.username.length < 8){
+                return 'Username is too Short';
+            } else if (!isNaN(this.username)) {
+                return 'Username Cant be Numbers Only';
+            } else {
+                return 'Hello' + this.username + 'Everything is Good';
+            }
+            },
+
+        },
+
+        })
+        </script>
+       
+    </body>
+</html>
